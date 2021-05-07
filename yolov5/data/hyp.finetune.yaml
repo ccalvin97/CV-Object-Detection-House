@@ -1,0 +1,51 @@
+# Hyperparameters for VOC finetuning
+: << !
+python train.py --img-size 1024 \
+    --batch 16 \
+    --epochs 30 \
+    --data ./data/antenna.yaml \
+    --cfg ./models/yolov5s.yaml \
+    --weights yolov5x.pt \
+    --device 0 
+!
+
+# python train.py --batch 64 --weights yolov5m.pt --data voc.yaml --img 512 --epochs 50
+# See tutorials for hyperparameter evolution https://github.com/ultralytics/yolov5#tutorials
+
+
+# Hyperparameter Evolution Results
+# Generations: 306
+#                   P         R     mAP.5 mAP.5:.95       box       obj       cls
+# Metrics:        0.6     0.936     0.896     0.684    0.0115   0.00805   0.00146
+
+lr0: 0.0032            # initial learning rate
+lrf: 0.12              # Cosine annealing LR (lr0 * lrf)
+momentum: 0.843        # Decide Previous gradient ratio into current gradient
+weight_decay: 0.00036  # weight 更新時加上一個 regularisation 抑制 weight不要太大
+
+warmup_epochs: 2.0     # warmup epochs (fractions ok)
+warmup_momentum: 0.5   # warmup initial momentum
+warmup_bias_lr: 0.05   # warmup initial bias lr
+
+box: 0.0296            # box loss gain (Box regression loss)
+cls: 0.243             # cls loss gain (class classification loss)
+cls_pw: 0.631          # cls BCELoss positive_weight
+obj: 0.301             # obj loss gain (scale with pixels)
+obj_pw: 0.911          # obj BCELoss positive_weight
+iou_t: 0.2             # IoU training threshold
+anchor_t: 2.91         # anchor-multiple threshold
+
+# anchors: 3.63
+fl_gamma: 0.0
+hsv_h: 0.0138
+hsv_s: 0.664
+hsv_v: 0.464
+degrees: 0.373
+translate: 0.245
+scale: 0.898
+shear: 0.602
+perspective: 0.0
+flipud: 0.00856
+fliplr: 0.5
+mosaic: 1.0
+mixup: 0.243
