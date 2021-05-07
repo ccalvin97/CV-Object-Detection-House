@@ -1,6 +1,4 @@
 <img src="https://github.com/ccalvin97/CV-Object-Detection/blob/master/yolov5/graph/86477109-5a7ca780-bd7a-11ea-9cb7-48d9fd6848e7.jpg" width="1000">  
-<img src="https://user-images.githubusercontent.com/26833433/103594689-455e0e00-4eae-11eb-9cdf-7d753e2ceeeb.png" width="1000">  
-
 
 ## Research Paper  
 **YoloV1:https://arxiv.org/abs/1506.02640**    
